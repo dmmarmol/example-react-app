@@ -1,9 +1,5 @@
 import baseStyled, { ThemedStyledInterface } from 'styled-components';
 
-export type IAppColors = 'primary' | 'secondary' | 'dark' | 'light' | 'highlight';
-export type IAppSize = 'xs' | 'sm' | 'md' | 'lg';
-export type IAppTypes = 'primary' | 'secondary' | 'highlight';
-
 export const appTheme = {
     // primary: '#91F9E5',
     primary: 'rgb(26, 177, 203)',

@@ -5,7 +5,7 @@ import './global.scss';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 
-/** Replace below imports with a Routing system */
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { appTheme } from './Theme';
 import { ThemeProvider } from 'styled-components';
 
@@ -15,7 +15,9 @@ const App: React.SFC<{}> = () => {
     return (
         <Provider store={store}>
             <ThemeProvider theme={appTheme}>
-                <Home />
+                <CssBaseline>
+                    <Home />
+                </CssBaseline>
             </ThemeProvider>
         </Provider>
     );

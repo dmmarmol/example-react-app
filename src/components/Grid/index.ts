@@ -1,6 +1,7 @@
 import Clearfix from './Clearfix';
 import Grid from './Grid';
-import Cell from './Cell';
+import Col from './Col';
+import Row from './Row';
 import Section from './Section';
 
-export { Clearfix, Grid, Cell, Section };
+export { Clearfix, Grid, Col, Row, Section };

@@ -1,14 +1,17 @@
 import * as React from 'react';
 
 import Grid from './Grid';
-import Cell from './Cell';
+import Row from './Row';
+import Col from './Col';
 
 interface ISectionProps {}
 
 const Section: React.FunctionComponent<ISectionProps> = props => {
     return (
         <Grid>
-            <Cell>{props.children}</Cell>
+            <Row>
+                <Col>{props.children}</Col>
+            </Row>
         </Grid>
     );
 };
