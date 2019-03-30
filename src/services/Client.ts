@@ -7,7 +7,7 @@ const BASE_URL = '';
 class Client {
     private baseUrl: string = BASE_URL;
 
-    private constructor(baseUrl?: string) {
+    constructor(baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : this.baseUrl;
     }
 

@@ -3,7 +3,10 @@ import './reset.scss';
 import './global.scss';
 
 import { Provider } from 'react-redux';
-import { store } from 'redux/store';
+import { store, runSaga } from 'redux/store';
+import rootSaga from 'redux/sagas';
+
+runSaga(rootSaga);
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { appTheme } from './Theme';

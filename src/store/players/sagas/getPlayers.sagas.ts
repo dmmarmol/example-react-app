@@ -1,19 +1,23 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { getPlayers, getPlayersAsync } from '../actions';
+import Api from 'services/Api';
 
 const executor = function*() {
-    yield put(getPlayersAsync.started({}));
+    const params = undefined;
+    yield put(getPlayersAsync.started(params));
     try {
+        const response = yield call(Api.players.getPlayers);
+        // GetPlayersResponse
         yield put(
             getPlayersAsync.done({
-                params: {},
-                result: [],
+                params,
+                result: response.data,
             }),
         );
     } catch (error) {
         yield put(
             getPlayersAsync.failed({
-                params: {},
+                params,
                 error,
             }),
         );

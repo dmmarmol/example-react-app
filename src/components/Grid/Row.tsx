@@ -1,6 +1,6 @@
 import { styled, breakpoint } from 'App/Theme';
 import Clearfix from './Clearfix';
-import { IAppSize } from 'src/App/app-types';
+import { IAppSize } from 'App/app-types';
 
 interface IRowProps {
     bottom?: IAppSize;

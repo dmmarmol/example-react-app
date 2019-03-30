@@ -11,3 +11,5 @@ export interface Player extends ResponsePlayer {
     id: string;
     age: string;
 }
+
+export interface GetPlayersResponse extends Array<ResponsePlayer> {}

@@ -11,5 +11,5 @@ export enum FetchStatus {
     IDLE = 'idle',
     START = 'start',
     SUCCESS = 'success',
-    ERROR = 'error',
+    FAILURE = 'failure',
 }

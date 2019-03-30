@@ -2,7 +2,7 @@ import * as React from 'react';
 import { kebabCase } from 'lodash-es';
 import { Select, MenuItem } from 'components';
 import { connect } from 'react-redux';
-import { Entity } from 'src/App/app-types';
+import { Entity } from 'App/app-types';
 
 enum positions {
     ATTACKING_MIDFIELD = 'Attacking Midfield',

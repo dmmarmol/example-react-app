@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled, appTheme } from 'App/Theme';
 import Icons, { IconType } from './Icons';
-import { IAppSize } from 'src/App/app-types';
+import { IAppSize } from 'App/app-types';
 
 interface IIconImageProps {
     size?: IAppSize;

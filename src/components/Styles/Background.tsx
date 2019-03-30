@@ -1,5 +1,5 @@
 import { styled, appTheme } from 'App/Theme';
-import { IAppColors } from 'src/App/app-types';
+import { IAppColors } from 'App/app-types';
 
 export interface IBackgroundProps {
     type?: IAppColors;
