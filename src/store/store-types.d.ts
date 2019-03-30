@@ -1,1 +1,5 @@
-export interface AppState {}
+import { PlayersState } from './players/playersReducer';
+
+export interface AppState {
+    players: PlayersState;
+}
