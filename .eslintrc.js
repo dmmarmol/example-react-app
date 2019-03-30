@@ -21,6 +21,7 @@ module.exports = {
         '@typescript-eslint/interface-name-prefix': "never",
         '@typescript-eslint/no-empty-interface': false,
         '@typescript-eslint/explicit-function-return-type': false,
+        '@typescript-eslint/explicit-member-accessibility': false
     },
     plugins: ['jest'],
     env: {
