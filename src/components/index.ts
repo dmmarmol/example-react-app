@@ -1,3 +1,4 @@
+import AppBar from './AppBar/AppBar';
 import Layout from './Layout/Layout';
 import { Clearfix, Grid, Row, Col, Section } from './Grid';
 import Button from './Button/Button';
@@ -11,6 +12,7 @@ import Table from './Table/Table';
 
 export {
     // Grid
+    AppBar,
     Clearfix,
     Grid,
     Row,
