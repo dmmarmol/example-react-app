@@ -34,6 +34,7 @@ const SelectPosition: React.SFC<SelectPositionProps> = props => {
 
     return (
         <Select
+            fullWidth
             value={value}
             onChange={event => {
                 return setValue(event.target.value);

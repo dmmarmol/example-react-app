@@ -11,7 +11,7 @@ class Table extends React.Component<TableProps> {
     public static Body: React.ComponentType<TableBodyProps> = props => <MaterialTableBody {...props} />;
     public static Cell: React.ComponentType<TableCellProps> = props => <MaterialTableCell {...props} />;
     public static Head: React.ComponentType<TableHeadProps> = props => <MaterialTableHead {...props} />;
-    public static Row: React.ComponentType<TableRowProps> = props => <MaterialTableRow {...props} />;
+    public static Row: React.ComponentType<TableRowProps> = props => <MaterialTableRow hover {...props} />;
     public render() {
         return <MaterialTable>{this.props.children}</MaterialTable>;
     }

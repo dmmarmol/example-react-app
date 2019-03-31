@@ -4,6 +4,6 @@ import { InputProps as MaterialInputProps } from '@material-ui/core/Input';
 
 interface FormInputProps extends MaterialInputProps {}
 
-const Input: React.SFC<FormInputProps> = props => <FormInput {...props} />;
+const Input: React.SFC<FormInputProps> = props => <FormInput fullWidth {...props} />;
 
 export default Input;
