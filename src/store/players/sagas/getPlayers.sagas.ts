@@ -6,8 +6,9 @@ const executor = function*() {
     const params = undefined;
     yield put(getPlayersAsync.started(params));
     try {
-        const response = yield call(Api.players.getPlayers);
         // GetPlayersResponse
+        const response = yield call(Api.players.getPlayers);
+
         yield put(
             getPlayersAsync.done({
                 params,

@@ -1,6 +1,8 @@
-# Kickstart react redux app
+# Example React App
 
 > Project build with `create-react-app`
+
+App build using reactjs & redux that will query a list of players from a static json and allow filtering
 
 ### Development
 

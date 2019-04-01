@@ -57,7 +57,7 @@ class Home extends React.Component<IHomeProps> {
                                             <Table.Cell>{player.name}</Table.Cell>
                                             <Table.Cell>{player.position}</Table.Cell>
                                             <Table.Cell>{player.jerseyNumber}</Table.Cell>
-                                            <Table.Cell>{player.age}</Table.Cell>
+                                            <Table.Cell>{player.age} years</Table.Cell>
                                         </Table.Row>
                                     ))}
                                 </Table.Body>

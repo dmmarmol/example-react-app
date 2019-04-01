@@ -1,7 +1,12 @@
 import { ResponsePlayer } from './playersTypes';
 import { FetchStatus } from 'App/app-types.d';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
-import { onGetPlayersStarted, onGetPlayersSuccess, onGetPlayersFailed } from './reducers';
+import {
+    onGetPlayersFetchStatusStarted,
+    onGetPlayersFetchStatusSuccess,
+    onGetPlayersFetchStatusFailed,
+    onGetPlayersSuccess,
+} from './reducers';
 import { getPlayersAsync } from './actions';
 
 export interface PlayersState {
@@ -19,8 +24,9 @@ export const initialState: PlayersState = {
 };
 
 const reducer = reducerWithInitialState<PlayersState>(initialState)
-    .case(getPlayersAsync.started, onGetPlayersStarted)
+    .case(getPlayersAsync.started, onGetPlayersFetchStatusStarted)
+    .case(getPlayersAsync.done, onGetPlayersFetchStatusSuccess)
     .case(getPlayersAsync.done, onGetPlayersSuccess)
-    .case(getPlayersAsync.failed, onGetPlayersFailed);
+    .case(getPlayersAsync.failed, onGetPlayersFetchStatusFailed);
 
 export default reducer;

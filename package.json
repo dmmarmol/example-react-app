@@ -10,11 +10,21 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "cross-env CI=true react-scripts build",
-        "test": "react-scripts test --passWithNoTests",
+        "test": "react-scripts test",
         "test:watch": "yarn test --watch",
-        "eject": "react-scripts eject",
+        "test:coverage": "yarn jest --coverage --colors --no-watch",
         "eslint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-        "lint": "yarn eslint"
+        "lint": "yarn eslint",
+        "eject": "react-scripts eject"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!<rootDir>/node_modules/"
+        ],
+        "coverageReporters": [
+            "html"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -28,7 +38,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "yarn build && lint-staged",
-            "pre-push": "yarn build && lint-staged && yarn run test --no-watch"
+            "pre-push": "yarn build && lint-staged && yarn run test:coverage"
         }
     },
     "lint-staged": {
@@ -44,8 +54,9 @@
         "axios": "^0.18.0",
         "color": "^3.1.0",
         "firebase": "^5.9.1",
-        "lodash-es": "^4.17.11",
+        "kebab-case": "^1.0.0",
         "moment": "^2.24.0",
+        "ramda": "^0.26.1",
         "react": "^16.8.4",
         "react-dom": "^16.8.4",
         "react-redux": "^6.0.1",
@@ -62,11 +73,12 @@
     },
     "devDependencies": {
         "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
-        "@babel/plugin-transform-runtime": "^7.4.0",
+        "@babel/plugin-transform-modules-commonjs": "^7.4.0",
         "@types/axios": "^0.14.0",
         "@types/color": "^3.0.0",
         "@types/jest": "^24.0.11",
         "@types/node": "^11.11.3",
+        "@types/ramda": "^0.26.5",
         "@types/react": "^16.8.8",
         "@types/react-dom": "^16.8.2",
         "@types/react-redux": "^7.0.3",

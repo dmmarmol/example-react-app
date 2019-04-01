@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { kebabCase } from 'lodash-es';
+import kebabCase from 'kebab-case';
 import { Select, MenuItem } from 'components';
 import { connect } from 'react-redux';
 import { Entity } from 'App/app-types';

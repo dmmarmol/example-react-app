@@ -15,8 +15,9 @@ export const getPlayersTableRows = createSelector(
     (players): Player[] => {
         return players.map((player, index) => {
             const age = moment()
-                .diff(player.dateOfBirth)
+                .diff(player.dateOfBirth, 'years')
                 .toString();
+
             return {
                 ...player,
                 id: `${index}`,

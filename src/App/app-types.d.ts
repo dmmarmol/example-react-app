@@ -9,7 +9,7 @@ export interface Entity {
 
 export enum FetchStatus {
     IDLE = 'idle',
-    START = 'start',
+    STARTED = 'start',
     SUCCESS = 'success',
     FAILURE = 'failure',
 }
