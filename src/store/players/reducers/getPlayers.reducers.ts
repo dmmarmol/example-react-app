@@ -7,7 +7,7 @@ import { indexBy } from 'ramda';
 export const onGetPlayersFetchStatusStarted = (state: PlayersState): PlayersState => ({
     ...state,
     fetchStatus: {
-        ...state,
+        ...state.fetchStatus,
         get: FetchStatus.STARTED,
     },
 });
@@ -15,7 +15,7 @@ export const onGetPlayersFetchStatusStarted = (state: PlayersState): PlayersStat
 export const onGetPlayersFetchStatusSuccess = (state: PlayersState): PlayersState => ({
     ...state,
     fetchStatus: {
-        ...state,
+        ...state.fetchStatus,
         get: FetchStatus.SUCCESS,
     },
 });
@@ -23,7 +23,7 @@ export const onGetPlayersFetchStatusSuccess = (state: PlayersState): PlayersStat
 export const onGetPlayersFetchStatusFailed = (state: PlayersState): PlayersState => ({
     ...state,
     fetchStatus: {
-        ...state,
+        ...state.fetchStatus,
         get: FetchStatus.FAILURE,
     },
 });

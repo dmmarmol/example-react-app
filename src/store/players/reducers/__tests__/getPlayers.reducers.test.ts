@@ -53,15 +53,27 @@ describe('getPlayers Reducers', () => {
         });
     });
     describe('Saving the new players', () => {
+        const getDummyPlayer = (name: string): ResponsePlayer => ({
+            contractUntil: 'string',
+            dateOfBirth: 'string',
+            jerseyNumber: 2,
+            name,
+            nationality: 'string',
+            position: 'string',
+        });
+
         it('should save a list of players into the store', () => {
             const action: Success<undefined, GetPlayersResponse> = {
                 params: undefined,
-                result: [{ name: 'mock name #1' }, { name: 'mock name #2' }] as ResponsePlayer[],
+                result: [getDummyPlayer('mock name #1'), getDummyPlayer('mock name #2')],
             };
             const actual = onGetPlayersSuccess(state, action);
-            const expected = {
-                'mock name #1': { name: 'mock name #1' },
-                'mock name #2': { name: 'mock name #2' },
+            const expected: PlayersState = {
+                ...state,
+                byName: {
+                    'mock name #1': getDummyPlayer('mock name #1'),
+                    'mock name #2': getDummyPlayer('mock name #2'),
+                },
             };
             expect(actual).toEqual(expected);
         });

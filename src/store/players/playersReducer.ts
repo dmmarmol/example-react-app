@@ -25,8 +25,10 @@ export const initialState: PlayersState = {
 
 const reducer = reducerWithInitialState<PlayersState>(initialState)
     .case(getPlayersAsync.started, onGetPlayersFetchStatusStarted)
-    .case(getPlayersAsync.done, onGetPlayersFetchStatusSuccess)
-    .case(getPlayersAsync.done, onGetPlayersSuccess)
+    .case(getPlayersAsync.done, (state, payload) => ({
+        ...onGetPlayersFetchStatusSuccess(state),
+        ...onGetPlayersSuccess(state, payload),
+    }))
     .case(getPlayersAsync.failed, onGetPlayersFetchStatusFailed);
 
 export default reducer;
