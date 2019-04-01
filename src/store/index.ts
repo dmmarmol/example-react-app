@@ -3,4 +3,5 @@ import { initialState as playersInitialState } from 'store/players/playersReduce
 
 export const initialState: AppState = {
     players: playersInitialState,
+    form: {},
 };

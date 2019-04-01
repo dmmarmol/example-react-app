@@ -3,29 +3,18 @@ import kebabCase from 'kebab-case';
 import { Select, MenuItem } from 'components';
 import { connect } from 'react-redux';
 import { Entity } from 'App/app-types';
-
-enum positions {
-    ATTACKING_MIDFIELD = 'Attacking Midfield',
-    CENTRAL_MIDFIELD = 'Central Midfield',
-    CENTRE_BACK = 'Centre-Back',
-    CENTRE_FORWARD = 'Centre-Forward',
-    DEFENSIVE_MIDFIELD = 'Defensive Midfield',
-    KEEPER = 'Keeper',
-    LEFT_MIDFIELD = 'Left Midfield',
-    LEFT_WING = 'Left Wing',
-    LEFT_BACK = 'Left-Back',
-    RIGHT_BACK = 'Right-Back',
-}
+import { Position } from 'store/form/filters/formFiltersTypes';
 
 /**
  * @TODO Move to selectors
  */
-const items: Entity[] = Object.keys(positions).map(position => ({
+const items: Entity[] = Object.keys(Position).map(position => ({
     id: kebabCase(position),
-    name: positions[position],
+    name: Position[position],
 }));
 
 interface SelectPositionProps {
+    name?: string;
     items: Entity[];
 }
 
@@ -34,6 +23,7 @@ const SelectPosition: React.SFC<SelectPositionProps> = props => {
 
     return (
         <Select
+            name={props.name}
             fullWidth
             value={value}
             onChange={event => {

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { AppBar, Row, Col, Grid, Form, Button, Input, Table } from 'components';
-import SelectPosition from './components/SelectPosition';
+import { AppBar, Row, Col, Grid, Table } from 'components';
 import { Player } from 'store/players/playersTypes';
-import { getPlayersTableRows } from 'store/players/selectors';
+
 import { AppState } from 'store/store-types';
 import { getPlayers } from 'store/players/actions';
 
+import Filters from './components/Filters';
+import { getFilteredPlayers } from 'store/form/filters/selectors';
 interface IHomeProps {
     players: Player[];
     getPlayers: typeof getPlayers;
@@ -22,24 +23,7 @@ class Home extends React.Component<IHomeProps> {
             <>
                 <AppBar position="static" />
                 <Grid>
-                    <Form>
-                        <Row bottom="sm">
-                            <Col sm={3}>
-                                <Input placeholder="Player name" />
-                            </Col>
-                            <Col sm={3}>
-                                <SelectPosition />
-                            </Col>
-                            <Col sm={3}>
-                                <Input placeholder="Age" />
-                            </Col>
-                            <Col sm={3}>
-                                <Button variant="contained" color="primary">
-                                    Search
-                                </Button>
-                            </Col>
-                        </Row>
-                    </Form>
+                    <Filters />
                     <Row bottom="sm">
                         <Col sm={12}>
                             <Table>
@@ -72,7 +56,7 @@ class Home extends React.Component<IHomeProps> {
 
 export default connect(
     (state: AppState) => ({
-        players: getPlayersTableRows(state),
+        players: getFilteredPlayers(state),
     }),
     {
         getPlayers,

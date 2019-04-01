@@ -9,7 +9,7 @@ export interface ResponsePlayer {
 
 export interface Player extends ResponsePlayer {
     id: string;
-    age: string;
+    age: number;
 }
 
 export interface GetPlayersResponse extends Array<ResponsePlayer> {}

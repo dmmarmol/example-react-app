@@ -14,7 +14,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Home from 'sections/Home/Home';
 
-const App: React.SFC<{}> = () => {
+const App: React.SFC = () => {
     return (
         <Provider store={store}>
             <ThemeProvider theme={appTheme}>
