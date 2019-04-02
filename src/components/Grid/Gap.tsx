@@ -10,26 +10,24 @@ interface IGapProps {
     display?: 'inline' | 'block';
 }
 
-const getSize = (size: IGapProps['size'], all: IGapProps['all'], vertical: IGapProps['vertical']) => {
-    if (size) {
-        if (all) {
-            return `${addVerticalPadding(appTheme.gap[size])} ${addHorizontalPadding(appTheme.gap[size])}`;
-        }
-        if (vertical) {
-            return addVerticalPadding(appTheme.gap[size]);
-        }
-        return addHorizontalPadding(appTheme.gap[size]);
+const getSize = (size: IAppSize, all: IGapProps['all'], vertical: IGapProps['vertical']) => {
+    if (all) {
+        return `${addVerticalPadding(appTheme.gap[size])} ${addHorizontalPadding(appTheme.gap[size])}`;
     }
-    return '';
+    if (vertical) {
+        return addVerticalPadding(appTheme.gap[size]);
+    }
+    return addHorizontalPadding(appTheme.gap[size]);
 };
 
 const Gap = styled.div<IGapProps>`
+    position: relative;
     ${({ display = 'block' }) => `display: ${display}`}
     ${({ size, all, vertical }) => `
-        ${getSize(size, all, vertical)}
-        ${getSize(size, all, vertical)}
-        ${getSize(size, all, vertical)}
-        ${getSize(size, all, vertical)}
+        ${size ? getSize(size, all, vertical) : ''}
+        ${size ? getSize(size, all, vertical) : ''}
+        ${size ? getSize(size, all, vertical) : ''}
+        ${size ? getSize(size, all, vertical) : ''}
     `}
 `;
 

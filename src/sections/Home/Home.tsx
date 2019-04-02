@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { AppBar, Grid, Table, Gap } from 'components';
+import { AppBar, Grid, Table, Gap, Shirt } from 'components';
 import { Player } from 'store/players/playersTypes';
 
 import { AppState } from 'store/store-types';
@@ -43,7 +43,9 @@ class Home extends React.Component<IHomeProps> {
                                         <Table.Row key={player.id}>
                                             <Table.Cell>{player.name}</Table.Cell>
                                             <Table.Cell>{player.position}</Table.Cell>
-                                            <Table.Cell>{player.jerseyNumber}</Table.Cell>
+                                            <Table.Cell>
+                                                <Shirt number={player.jerseyNumber} />
+                                            </Table.Cell>
                                             <Table.Cell>{player.age} years</Table.Cell>
                                         </Table.Row>
                                     ))

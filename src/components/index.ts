@@ -6,6 +6,7 @@ import Input from './Form/Input';
 import Select from './Form/Select';
 import MenuItem from './Form/MenuItem';
 import Table from './Table/Table';
+import Shirt from './Icon/Shirt/Shirt';
 // Grid
 export * from './Grid';
 
@@ -20,4 +21,5 @@ export {
     Layout,
     Button,
     Table,
+    Shirt,
 };
