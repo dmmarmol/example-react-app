@@ -50,9 +50,13 @@ class Home extends React.Component<IHomeProps> {
                                         </Table.Row>
                                     ))
                                 ) : (
-                                    <Gap all size="lg">
-                                        <p>No Players Found</p>
-                                    </Gap>
+                                    <Table.Row>
+                                        <Table.Cell>
+                                            <Gap all size="lg">
+                                                <p>No Players Found</p>
+                                            </Gap>
+                                        </Table.Cell>
+                                    </Table.Row>
                                 )}
                             </Table.Body>
                         </Table>
