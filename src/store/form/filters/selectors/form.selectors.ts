@@ -3,6 +3,7 @@ import { FORM_FILTERS_ID } from './../../constants';
 import { createSelector } from 'reselect';
 import { getFormValues } from 'redux-form';
 import { getPlayersTableRows } from 'store/players/selectors';
+import { sluglify } from 'components/utils';
 
 const getFiltersFormValues = getFormValues(FORM_FILTERS_ID);
 
@@ -31,7 +32,7 @@ export const getFilteredPlayers = createSelector(
                     return true;
                 }
                 const filter = position.toLowerCase();
-                const value = player.position.toLowerCase();
+                const value = sluglify(player.position);
                 return filter && value === filter;
             })
             .filter(player => {

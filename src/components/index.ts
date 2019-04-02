@@ -1,5 +1,4 @@
 import AppBar from './AppBar/AppBar';
-import Layout from './Layout/Layout';
 import Button from './Button/Button';
 import Form from './Form/Form';
 import Input from './Form/Input';
@@ -18,7 +17,6 @@ export {
     Select,
     MenuItem,
     // General
-    Layout,
     Button,
     Table,
     Shirt,

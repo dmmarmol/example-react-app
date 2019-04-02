@@ -16,3 +16,14 @@ export function random() {
 export function randomRange(min: number, max: number) {
     return Math.round(Math.random() * (+max - +min) + +min);
 }
+
+export function beautifyString(str: string) {
+    return str.replace('-', ' ').replace('_', ' ');
+}
+
+export function sluglify(str: string) {
+    return str
+        .replace(' ', '-')
+        .replace('_', '-')
+        .toLowerCase();
+}

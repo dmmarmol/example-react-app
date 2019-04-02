@@ -1,3 +1,4 @@
+import { beautifyString, sluglify } from 'components/utils';
 import { Position } from 'store/form/filters/formFiltersTypes';
 import { Entity } from 'App/app-types';
 import { AppState } from 'store/store-types';
@@ -21,6 +22,7 @@ export const getPlayersTableRows = createSelector(
             return {
                 ...player,
                 id: `${index}`,
+                position: beautifyString(player.position),
                 age,
             };
         });
@@ -28,7 +30,12 @@ export const getPlayersTableRows = createSelector(
 );
 
 export const getPositionList = (): Entity[] =>
-    Object.keys(Position).map(position => ({
-        id: position.replace(' ', '-').replace('_', '-'),
-        name: Position[position],
-    }));
+    Object.keys(Position).map(position => {
+        const id = sluglify(position);
+        const name = beautifyString(Position[position]);
+
+        return {
+            id,
+            name,
+        };
+    });
