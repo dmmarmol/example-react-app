@@ -19,10 +19,9 @@ const SelectPosition: React.SFC<SelectPositionProps> = ({ input, items, ...props
             name={props.name}
             fullWidth
             value={value}
-            onChange={event => {
-                return setValue(event.target.value);
-            }}
+            onChange={event => setValue(event.target.value)}
         >
+            <MenuItem value="">None</MenuItem>
             {items.map(item => (
                 <MenuItem value={item.id} key={item.id}>
                     {item.name}

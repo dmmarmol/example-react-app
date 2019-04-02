@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Select as FormSelect } from '@material-ui/core';
+import { Select as FormSelect, InputLabel } from '@material-ui/core';
 import { SelectProps as MaterialSelectProps } from '@material-ui/core/Select/Select';
 import { WrappedFieldProps, Field } from 'redux-form';
 
@@ -15,10 +15,21 @@ class Select extends React.Component<FormSelectProps> {
     }
 }
 
-const renderSelectField = ({ input, children, ...custom }) => (
-    <Select {...input} onChange={event => input.onChange(event.target.value)} {...custom}>
-        {children}
-    </Select>
+const renderSelectField = ({ input, children, ...props }) => (
+    <>
+        {props.title && <InputLabel htmlFor={props.id}>{props.title}</InputLabel>}
+        <Select
+            {...input}
+            onChange={event => input.onChange(event.target.value)}
+            {...props}
+            inputProps={{
+                name: props.name,
+                id: props.id,
+            }}
+        >
+            {children}
+        </Select>
+    </>
 );
 
 type AcceptedValueType = string | string[] | number;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input as FormInput } from '@material-ui/core';
+import { Input as FormInput, InputLabel } from '@material-ui/core';
 import { InputProps as MaterialInputProps } from '@material-ui/core/Input';
 import { Field, WrappedFieldProps } from 'redux-form';
 
@@ -11,7 +11,19 @@ class Input extends React.Component<FormInputProps> {
     public static Field: React.ComponentType<Partial<WrappedFieldProps> & FormInputProps>;
 
     render() {
-        return <FormInput fullWidth {...this.props} />;
+        return (
+            <>
+                {this.props.title && <InputLabel htmlFor={this.props.id}>{this.props.title}</InputLabel>}
+                <FormInput
+                    fullWidth
+                    {...this.props}
+                    inputProps={{
+                        name: this.props.name,
+                        id: this.props.id,
+                    }}
+                />
+            </>
+        );
     }
 }
 

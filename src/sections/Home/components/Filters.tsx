@@ -11,13 +11,13 @@ let Filters: React.FunctionComponent<FiltersProps> = () => {
         <Form>
             <Grid container spacing={24}>
                 <Grid item xs={4}>
-                    <Input.Field name="name" placeholder="Player name" />
+                    <Input.Field name="name" title="Player name" />
                 </Grid>
                 <Grid item xs={4}>
-                    <SelectPosition name="position" /* label="Position" */ />
+                    <SelectPosition name="position" title="Position" />
                 </Grid>
                 <Grid item xs={4}>
-                    <Input.Field name="age" type="number" placeholder="Age" />
+                    <Input.Field name="age" type="number" title="Age" />
                 </Grid>
             </Grid>
         </Form>
