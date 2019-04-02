@@ -19,23 +19,26 @@ export const getFilteredPlayers = createSelector(
 
         return players
             .filter(player => {
+                if (!name) {
+                    return true;
+                }
                 const filter = name.toLowerCase();
                 const value = player.name.toLowerCase();
                 return filter && value.match(filter);
             })
             .filter(player => {
-                if (position) {
-                    const filter = position.toLowerCase();
-                    const value = player.position.toLowerCase();
-                    return filter && value === filter;
+                if (!position) {
+                    return true;
                 }
-                return true;
+                const filter = position.toLowerCase();
+                const value = player.position.toLowerCase();
+                return filter && value === filter;
             })
             .filter(player => {
-                if (age) {
-                    return age && `${player.age}`.match(age);
+                if (!age) {
+                    return true;
                 }
-                return true;
+                return age && `${player.age}`.match(age);
             });
     },
 );

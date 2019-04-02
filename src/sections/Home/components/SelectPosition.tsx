@@ -1,28 +1,21 @@
 import * as React from 'react';
-import kebabCase from 'kebab-case';
 import { Select, MenuItem } from 'components';
 import { connect } from 'react-redux';
 import { Entity } from 'App/app-types';
-import { Position } from 'store/form/filters/formFiltersTypes';
+import { getPositionList } from 'store/players/selectors';
+import { SelectFieldProps } from 'src/components/Form/Select';
 
-/**
- * @TODO Move to selectors
- */
-const items: Entity[] = Object.keys(Position).map(position => ({
-    id: kebabCase(position),
-    name: Position[position],
-}));
-
-interface SelectPositionProps {
-    name?: string;
+interface SelectPositionProps extends SelectFieldProps {
     items: Entity[];
 }
 
-const SelectPosition: React.SFC<SelectPositionProps> = props => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SelectPosition: React.SFC<SelectPositionProps> = ({ input, items, ...props }) => {
     const [value, setValue] = React.useState<string>(items[0].id);
 
     return (
-        <Select
+        <Select.Field
+            {...props}
             name={props.name}
             fullWidth
             value={value}
@@ -30,15 +23,15 @@ const SelectPosition: React.SFC<SelectPositionProps> = props => {
                 return setValue(event.target.value);
             }}
         >
-            {props.items.map(item => (
+            {items.map(item => (
                 <MenuItem value={item.id} key={item.id}>
                     {item.name}
                 </MenuItem>
             ))}
-        </Select>
+        </Select.Field>
     );
 };
 
 export default connect(() => ({
-    items,
+    items: getPositionList(),
 }))(SelectPosition);

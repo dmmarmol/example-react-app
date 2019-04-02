@@ -14,7 +14,7 @@ let Filters: React.FunctionComponent<FiltersProps> = () => {
                     <Input.Field name="name" placeholder="Player name" />
                 </Col>
                 <Col sm={4}>
-                    <SelectPosition name="position" />
+                    <SelectPosition name="position" /* label="Position" */ />
                 </Col>
                 <Col sm={4}>
                     <Input.Field name="age" type="number" placeholder="Age" />

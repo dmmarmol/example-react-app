@@ -1,3 +1,5 @@
+import { Position } from 'store/form/filters/formFiltersTypes';
+import { Entity } from 'App/app-types';
 import { AppState } from 'store/store-types';
 import { createSelector } from 'reselect';
 import { Player } from '../playersTypes';
@@ -24,3 +26,9 @@ export const getPlayersTableRows = createSelector(
         });
     },
 );
+
+export const getPositionList = (): Entity[] =>
+    Object.keys(Position).map(position => ({
+        id: position.replace(' ', '-').replace('_', '-'),
+        name: Position[position],
+    }));

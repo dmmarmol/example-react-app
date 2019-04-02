@@ -7,7 +7,7 @@ interface FormInputProps extends MaterialInputProps {
     defaultValue?: string | string[];
 }
 
-class Input<FieldProps> extends React.Component<FormInputProps & FieldProps> {
+class Input extends React.Component<FormInputProps> {
     public static Field: React.ComponentType<Partial<WrappedFieldProps> & FormInputProps>;
 
     render() {

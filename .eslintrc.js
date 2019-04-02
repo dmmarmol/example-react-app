@@ -18,6 +18,8 @@ module.exports = {
         // e.g. "@typescript-eslint/explicit-function-return-type: "off",
         strict: 0,
         'react/prop-types': [false],
+        'no-unused-vars': "off",
+        '@typescript-eslint/no-unused-vars': ["warn", { "argsIgnorePattern": "^_" }],
         '@typescript-eslint/interface-name-prefix': "never",
         '@typescript-eslint/no-empty-interface': false,
         '@typescript-eslint/explicit-function-return-type': false,
