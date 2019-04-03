@@ -1,5 +1,5 @@
 import { styled, appTheme } from 'App/Theme';
-import { IAppSize } from 'src/App/app-types';
+import { IAppSize } from 'App/app-types';
 import { addHorizontalPadding, addVerticalPadding } from 'components/Styles/utils';
 
 interface IGapProps {

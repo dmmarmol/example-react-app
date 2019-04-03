@@ -3,7 +3,8 @@ import { Select, MenuItem } from 'components';
 import { connect } from 'react-redux';
 import { Entity } from 'App/app-types';
 import { getPositionList } from 'store/players/selectors';
-import { SelectFieldProps } from 'src/components/Form/Select';
+import { SelectFieldProps } from 'components/Form/Select';
+import { Position } from 'store/form/filters/formFiltersTypes';
 
 interface SelectPositionProps extends SelectFieldProps {
     items: Entity[];
@@ -32,5 +33,5 @@ const SelectPosition: React.SFC<SelectPositionProps> = ({ input, items, ...props
 };
 
 export default connect(() => ({
-    items: getPositionList(),
+    items: getPositionList(Position),
 }))(SelectPosition);
