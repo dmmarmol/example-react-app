@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Form, Input, Grid } from 'components';
 import SelectPosition from './SelectPosition';
 import { reduxForm, InjectedFormProps } from 'redux-form';
-import { FORM_FILTERS_ID } from '../../../store/form/constants';
+import { FORM_FILTERS_ID } from 'store/form/constants';
 
 interface FiltersProps extends InjectedFormProps {}
 

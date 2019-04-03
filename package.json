@@ -1,5 +1,5 @@
 {
-    "name": "kickstart-react-redux-app",
+    "name": "example-react-app",
     "author": {
         "name": "Diego Martin Marmol",
         "email": "diegomartinmarmol@gmail.com",
@@ -23,9 +23,11 @@
             "!<rootDir>/node_modules/"
         ],
         "coverageReporters": [
-            "html"
+            "html",
+            "lcov"
         ]
     },
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.ts",
     "eslintConfig": {
         "extends": "react-app"
     },
@@ -77,6 +79,7 @@
         "@babel/plugin-transform-modules-commonjs": "^7.4.0",
         "@types/axios": "^0.14.0",
         "@types/color": "^3.0.0",
+        "@types/enzyme": "^3.9.1",
         "@types/jest": "^24.0.11",
         "@types/node": "^11.11.3",
         "@types/ramda": "^0.26.5",
@@ -89,7 +92,10 @@
         "@types/styled-components": "^4.1.12",
         "@typescript-eslint/eslint-plugin": "^1.5.0",
         "@typescript-eslint/parser": "^1.5.0",
+        "chai": "^4.2.0",
         "cross-env": "^5.2.0",
+        "enzyme": "^3.9.0",
+        "enzyme-adapter-react-16": "^1.11.2",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-google": "^0.12.0",
         "eslint-config-prettier": "^4.1.0",
@@ -103,6 +109,7 @@
         "lint-staged": "^8.1.5",
         "node-sass": "^4.11.0",
         "prettier": "^1.16.4",
+        "react-test-renderer": "^16.8.6",
         "typescript": "^3.3.3333",
         "typescript-styled-plugin": "^0.14.0"
     }
