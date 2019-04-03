@@ -1,11 +1,62 @@
-import { Position } from 'store/form/filters/formFiltersTypes';
+import { getFilteredPlayers, filterByName, filterByPosition, filterByAge } from './../form.selectors';
+import { Position, FormFiltersFormData } from 'store/form/filters/formFiltersTypes';
 import { Player } from 'store/players/playersTypes';
-import { FormFiltersFormData } from './../../formFiltersTypes';
-import { getFilteredPlayers } from 'store/form/filters/selectors';
+
 describe('Form Selectors', () => {
+    const getPlayer = (props?: Partial<Player>) => ({ ...props } as Player);
+
+    describe('filter', () => {
+        describe('ByName', () => {
+            it('Should return TRUE if both filter and value match', () => {
+                const player = getPlayer({ name: 'Chris Smalling', position: Position.ATTACKING_MIDFIELD, age: 27 });
+                const value = 'Chris Smalling';
+                const actual = filterByName(value)(player);
+                const expected = true;
+                expect(actual).toEqual(expected);
+            });
+            it('Should return FALSE if the provided filter can`t match with the value', () => {
+                const player = getPlayer({ name: 'Romelu Lukaku', position: Position.ATTACKING_MIDFIELD, age: 27 });
+                const value = 'Chris Smalling';
+                const actual = filterByName(value)(player);
+                const expected = false;
+                expect(actual).toEqual(expected);
+            });
+        });
+        describe('ByPosition', () => {
+            it('Should return TRUE if both filter and value match', () => {
+                const player = getPlayer({ name: 'Player 2', position: Position.LEFT_MIDFIELD, age: 33 });
+                const value = 'Left Midfield';
+                const actual = filterByPosition(value)(player);
+                const expected = true;
+                expect(actual).toEqual(expected);
+            });
+            it('Should return FALSE if the provided filter can`t match with the value', () => {
+                const player = getPlayer({ name: 'Player 2', position: Position.ATTACKING_MIDFIELD, age: 33 });
+                const value = 'Left Midfield';
+                const actual = filterByPosition(value)(player);
+                const expected = false;
+                expect(actual).toEqual(expected);
+            });
+        });
+        describe('ByAge', () => {
+            it('Should return TRUE if both filter and value match', () => {
+                const player = getPlayer({ name: 'Player 3', position: Position.KEEPER, age: 27 });
+                const value = '27';
+                const actual = filterByAge(value)(player);
+                const expected = true;
+                expect(actual).toEqual(expected);
+            });
+            it('Should return FALSE if the provided filter can`t match with the value', () => {
+                const player = getPlayer({ name: 'Player 3', position: Position.ATTACKING_MIDFIELD, age: 24 });
+                const value = '27';
+                const actual = filterByAge(value)(player);
+                const expected = false;
+                expect(actual).toEqual(expected);
+            });
+        });
+    });
     describe('getFilteredPlayers', () => {
         const selector = getFilteredPlayers.resultFunc;
-        const getPlayer = (props?: Partial<Player>) => ({ ...props } as Player);
 
         const players: Player[] = [
             getPlayer({ name: 'Player 1', position: Position.ATTACKING_MIDFIELD, age: 27 }),
