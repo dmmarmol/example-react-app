@@ -31,7 +31,8 @@ export const getFilteredPlayers = createSelector(
                 if (!position) {
                     return true;
                 }
-                const filter = position.toLowerCase();
+
+                const filter = sluglify(position);
                 const value = sluglify(player.position);
                 return filter && value === filter;
             })
@@ -39,7 +40,8 @@ export const getFilteredPlayers = createSelector(
                 if (!age) {
                     return true;
                 }
-                return age && `${player.age}`.match(age);
+                const match = Boolean(`${player.age}`.match(age));
+                return age && match;
             });
     },
 );

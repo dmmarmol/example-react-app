@@ -23,7 +23,7 @@ export function beautifyString(str: string) {
 
 export function sluglify(str: string) {
     return str
+        .toLowerCase()
         .replace(' ', '-')
-        .replace('_', '-')
-        .toLowerCase();
+        .replace('_', '-');
 }
